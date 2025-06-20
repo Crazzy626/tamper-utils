@@ -1,36 +1,39 @@
-# tamper-utils
-helper utilities for tamper monkey scripts
+# 🛠️ tamper-utils
 
-# Uses https://www.jsdelivr.com as CDN
+A growing collection of reusable helper utilities for Tampermonkey userscripts.
 
-Create CDN link to be used in tamper monkey script
+---
 
-// @require https://cdn.jsdelivr.net/gh/yourusername/tamper-utils@latest/jwt-auth-helper.js
+## 🌐 CDN Hosting
 
+All scripts in this repository are served via [jsDelivr CDN](https://www.jsdelivr.com/).
 
-# jwt-authhelper.js
+### ✅ Usage in Tampermonkey
 
-🔐 JWT Auth Helper
+To import any helper into your Tampermonkey script, use:
 
-A utility to manage JWT token authentication for TravelBusinessClass admin panels in Tampermonkey scripts.
+```javascript
+// @require https://cdn.jsdelivr.net/gh/yourusername/tamper-utils@latest/<script-name>.js
 
-📦 File
+    Replace <script-name>.js with the desired file, e.g. jwt-auth-helper.js
 
-jwt-auth-helper.js
+📦 Available Modules
+1. jwt-auth-helper.js – 🔐 JWT Auth Helper
 
+A utility for managing JWT authentication tokens in Tampermonkey scripts for TravelBusinessClass back office panels.
 ✅ Features
 
-    Logs in using email/password and retrieves JWT token
+    Logs in using email/password and retrieves a JWT token
 
-    Saves token with GM_setValue for reuse
+    Saves token using GM_setValue and retrieves it with GM_getValue
 
-    Automatically refreshes token if expired or near expiry
+    Automatically refreshes the token if expired or near expiry
 
-    Provides getToken() method for usage in API calls
+    Provides getToken() method for authenticated requests
 
-🚀 How to Use in Tampermonkey
+🚀 How to Use
 
-1. Include in your userscript:
+1. Include in your Tampermonkey userscript:
 
 // @require https://cdn.jsdelivr.net/gh/yourusername/tamper-utils@latest/jwt-auth-helper.js
 // @grant   GM_getValue
@@ -43,22 +46,36 @@ const auth = JwtAuth("staging", "admin@tbc.loc", "tbc@040");
 auth.checkAndRefreshToken().then(() => {
     const token = auth.getToken();
     console.log("✅ Token:", token);
-    
-    // Example: authenticated fetch
+
+    // Example: authenticated API request
     fetch("https://staging-bo.travelbusinessclass.com/api/protected", {
         headers: {
             Authorization: `Bearer ${token}`
         }
-    }).then(res => res.json())
-      .then(data => console.log("Protected data:", data));
+    })
+    .then(res => res.json())
+    .then(data => console.log("Protected data:", data));
 });
 
-🛠 Dependencies
+🛠 Required Tampermonkey Permissions
 
-This script relies on the following Tampermonkey APIs:
+Make sure to declare the following in your script's metadata block:
 
-    GM_getValue
+// @grant GM_getValue
+// @grant GM_setValue
 
-    GM_setValue
+🧩 Coming Soon
 
-Ensure they are declared in your userscript’s metadata block.
+    dom-utils.js – DOM selection, mutation, and event helpers
+
+    ui-injector.js – UI widgets and modals for Tampermonkey overlays
+
+    storage-tools.js – Sync/local storage abstraction for persistent state
+
+📄 License
+
+MIT License — free to use, modify, and contribute.
+
+
+Let me know if you'd like me to generate a sample `dom-utils.js` or the UMD version of it for future modules.
+
