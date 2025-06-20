@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name         auth_test
-// @description  test the JwtAuth
+// @name         EXAMPLE_generate_auth_token
+// @description  Use .js from CDN for JwtAuth
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @match        *://*.travelbusinessclass.com/*
@@ -9,6 +9,7 @@
 // @grant        GM_setValue
 // ==/UserScript==
 
+
 // SETTINGS
 const instance = "pub4";
 const username = "admin@tbc.loc";
@@ -16,6 +17,7 @@ const pwd = "tbc@040";
 // PROTECTED RESOURCE to be fetched in test
 // const endpointUrl = "https://pub4-bo.travelbusinessclass.com/api/database/v2/Client/search?pageSize=1";
 const endpointUrl = "https://pub4-bo.travelbusinessclass.com/api/database/v1/agents/AgentFormModel/35";
+
 
 (function () {
     'use strict';
