@@ -3,6 +3,7 @@
 // Convert to UMD (Universal Module Definition)
 // Since @require does not support ES Modules directly, you must convert this package to UMD or plain global script. Here's how
 
+// SCOPE: generate AUT Bearer token and set to GM_setValue(TOKEN_KEY, json.token);
 
 (function (root, factory) {
     if (typeof exports === 'object') {
