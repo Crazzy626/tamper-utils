@@ -1,6 +1,13 @@
 # tamper-utils
 helper utilities for tamper monkey scripts
 
+# Uses https://www.jsdelivr.com as CDN
+
+Create CDN link to be used in tamper monkey script
+
+// @require https://cdn.jsdelivr.net/gh/yourusername/tamper-utils@latest/jwt-auth-helper.js
+
+
 # jwt-authhelper.js
 
 🔐 JWT Auth Helper
