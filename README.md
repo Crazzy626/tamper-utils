@@ -6,9 +6,11 @@ helper utilities for tamper monkey scripts
 🔐 JWT Auth Helper
 
 A utility to manage JWT token authentication for TravelBusinessClass admin panels in Tampermonkey scripts.
+
 📦 File
 
 jwt-auth-helper.js
+
 ✅ Features
 
     Logs in using email/password and retrieves JWT token
@@ -20,6 +22,7 @@ jwt-auth-helper.js
     Provides getToken() method for usage in API calls
 
 🚀 How to Use in Tampermonkey
+
 1. Include in your userscript:
 
 // @require https://cdn.jsdelivr.net/gh/yourusername/tamper-utils@latest/jwt-auth-helper.js
