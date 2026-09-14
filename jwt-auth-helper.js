@@ -24,6 +24,9 @@
 
     return function JwtAuth(instance, email, password) {
 
+        // DEBUG VERSION NR.
+        console.log('[JWT_HELPER] NEW DEV-MD HELPER LOADED - 2026-09-14');
+
         // ========================================================
         // URLS
         // ========================================================
