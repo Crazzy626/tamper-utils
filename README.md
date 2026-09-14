@@ -8,6 +8,12 @@ A growing collection of reusable helper utilities for Tampermonkey userscripts.
 
 All scripts in this repository are served via [jsDelivr CDN](https://www.jsdelivr.com/).
 
+### IMPROTANT
+After updating the .js script - DONT FORGET TO PURGE CACHED !!!
+
+https://www.jsdelivr.com/tools/purge
+
+
 ### ✅ Usage in Tampermonkey
 
 To import any helper into your Tampermonkey script, use:
