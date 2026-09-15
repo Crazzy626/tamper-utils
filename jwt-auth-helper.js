@@ -5,7 +5,7 @@
 // update-1: 20.06.2025
 // last-update: 14.09.2026
 // Updated for TMG BO dev-md environment
-//
+// TAG: jwt-auth-202609141930
 // IMPORTANT:
 // Login uses GM_xmlhttpRequest instead of fetch()
 // to avoid browser CORS restrictions.
