@@ -1,0 +1,29 @@
+{
+  "modules": {
+    "bo-context-helper.js": {
+      "version": "1.0.0",
+      "tag": "bo-context-v1.0.0",
+      "tagPrefix": "bo-context"
+    },
+    "env-auth-helper.js": {
+      "version": "1.0.0",
+      "tag": "env-auth-v1.0.0",
+      "tagPrefix": "env-auth"
+    },
+    "jwt-auth-helper.js": {
+      "version": "1.0.0",
+      "tag": "jwt-auth-v1.0.0",
+      "tagPrefix": "jwt-auth"
+    },
+    "random-user-helper.js": {
+      "version": null,
+      "tag": null,
+      "tagPrefix": "random-user"
+    },
+    "toast-helper.js": {
+      "version": null,
+      "tag": null,
+      "tagPrefix": "toast"
+    }
+  }
+}

@@ -1,6 +1,6 @@
 // jwt-auth-helper.js
 // UMD version
-// Generates AUT Bearer token and stores it in GM_setValue(TOKEN_KEY, token)
+// Generates a Bearer token and stores it under an account-scoped GM key.
 //
 // update-1: 20.06.2025
 // update-2: 24.06.2025
@@ -14,8 +14,12 @@
     root.JwtAuth = factory();
   }
 })(this, function() {
-  const TOKEN_KEY = 'jwt_token';
-  return function JwtAuth(baseUrl, email, password) {
+  function createTokenKey(baseUrl, email, explicitKey) {
+    if (explicitKey) return explicitKey;
+    return `jwt_token:${encodeURIComponent(baseUrl)}:${encodeURIComponent(email)}`;
+  }
+  return function JwtAuth(baseUrl, email, password, options = {}) {
+    const tokenKey = createTokenKey(baseUrl, email, options.tokenKey);
     // DEBUG VERSION NR.
     console.log('[JWT_HELPER] NEW DEV-MD HELPER LOADED - 2026-09-14');
     // ========================================================
@@ -50,7 +54,7 @@
     // CHECK / REFRESH TOKEN
     // ========================================================
     async function checkAndRefreshToken() {
-      const token = await GM_getValue(TOKEN_KEY);
+      const token = await GM_getValue(tokenKey);
       // ----------------------------------------------------
       // No token
       // ----------------------------------------------------
@@ -143,7 +147,7 @@
             // Store token
             // --------------------------------------
             try {
-              await GM_setValue(TOKEN_KEY, json.token);
+              await GM_setValue(tokenKey, json.token);
             } catch (error) {
               console.error('❌ Failed to store JWT token:', error);
               reject(error);
@@ -178,7 +182,7 @@
     return {
       checkAndRefreshToken,
       generateNewToken,
-      getToken: () => GM_getValue(TOKEN_KEY)
+      getToken: () => GM_getValue(tokenKey)
     };
   };
 });
